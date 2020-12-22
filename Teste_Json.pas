@@ -89,15 +89,15 @@ begin
    //verifica se existem colunas
    if (ColumnCount = 0) then Exit;
 
-   //verifica se o TDataSet do DataSource referenciado no DBGrid est· ativo (haha)
+   //verifica se o TDataSet do DataSource referenciado no DBGrid est√° ativo (haha)
    if not DBGrid.DataSource.DataSet.Active  then Exit;
 
-   //captura em vari·veis tempor·rias o dataset e datasource, e tambÈm a quantidade de linhas que sua query retornou no record count
+   //captura em vari√°veis tempor√°rias o dataset e datasource, e tamb√©m a quantidade de linhas que sua query retornou no record count
    DataSetTemp    := DBGrid.DataSource.DataSet;
    DataSourceTemp := DBGrid.DataSource;
 
-   //esta instruÁ„o foi feita para evitar que o usu·rio veja o processo de redimensionamento do dbgrid.
-   //N„o pode limpar o DataSource do DBGrid.
+   //esta instru√ß√£o foi feita para evitar que o usu√°rio veja o processo de redimensionamento do dbgrid.
+   //N√£o pode limpar o DataSource do DBGrid.
    //DBGrid.DataSource := nil;
    RowCount := DataSetTemp.RecordCount;
 
@@ -109,7 +109,7 @@ begin
 
       DataSetTemp.First;
 
-      //Seta o primeiro valor como o TÕTULO da coluna para evitar que os campos fiquem "invisÌveis", quando n„o houver campo preenchido.
+      //Seta o primeiro valor como o T√çTULO da coluna para evitar que os campos fiquem "invis√≠veis", quando n√£o houver campo preenchido.
       MStrValue := DBGrid.Columns[contCol].Title.Caption;
 
       while not DataSetTemp.Eof do
@@ -124,15 +124,15 @@ begin
          AStrValue := DataSetTemp.FieldByName(DBGrid.Columns[contCol].FieldName).AsString;
          DataSetTemp.Next;
 
-         //verifica se a prÛxima vari·vel È maior que a anterior
-         //e mantÈm a maior.
+         //verifica se a pr√≥xima vari√°vel √© maior que a anterior
+         //e mant√©m a maior.
          if length(MStrValue) < AValue then
             MStrValue := AStrValue;
       end;
 
       //seta a largura atual com o tamanho do campo maior capturado
-      //anteriormente (Observe que h· uma convers„o de texto para Width,
-      //isto È para capturar o valor real da largura do texto.)
+      //anteriormente (Observe que h√° uma convers√£o de texto para Width,
+      //isto √© para capturar o valor real da largura do texto.)
 
 
       //DBGrid.Columns[contCol].Width := Canvas.TextWidth(MStrValue)+15;
@@ -148,9 +148,7 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 //const
-  //MEU_JSON = '[{"pgemp_codigo":1,"eqpdg_codigo":"010101011","eqund_codigo":"UN","eqpgu_descricaocomplementar":null,"eqpgu_fatorconversaoembalagem":1.000000,"eqpgu_situacao":"A","eqpgu_situacaoforcavenda":"A"}]';
-
-
+  
   //MEU_JSON =
   //'[{'+
 	//'"Titulo": "Ate que a sorte nos separe",'+
@@ -193,10 +191,8 @@ begin
 
    while not Eof( MeuArquivo ) do
    begin
-      {* Teste *}
       ReadLn(MeuArquivo, vRead);
       JSon := JSon + vRead;
-      {* Teste 2 *}
    end;
 end;
 
