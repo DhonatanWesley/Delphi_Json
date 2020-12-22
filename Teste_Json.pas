@@ -193,8 +193,10 @@ begin
 
    while not Eof( MeuArquivo ) do
    begin
+      {* Teste *}
       ReadLn(MeuArquivo, vRead);
       JSon := JSon + vRead;
+      {* Teste 2 *}
    end;
 end;
 
